@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "(cd \"../gateway\" && npm i) && (cd \"../pizza\" && npm i)",
+    "postinstall": "(cd \"../gateway\" && npm i) && (cd \"../pizza\" && npm i) && (cd \"../pizza-db\" && npm i)",
     "precov": "npm install",
     "cov": "c8 ava",
     "prenocov": "npm install",
@@ -26,6 +26,7 @@
     "src": [
       "../gateway",
       "../pizza",
+      "../pizza-db",
       "../share"
     ],
     "exclude": [
@@ -45,5 +46,6 @@
     "moleculer": "^0.14.28",
     "uuid": "^9.0.0"
   },
+  "devDependencies": {},
   "description": ""
 }

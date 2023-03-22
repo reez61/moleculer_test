@@ -16,6 +16,12 @@ test.beforeEach(async (t) => {
   await t.context.broker.start();
 });
 
+test.afterEach(async (t) => {
+  //stop le Service broker
+  await t.context.broker.stop();
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //première test : créer un snapshot sur la réponse de l'appel au service
 //attention car c'est le premier snapshot qui sert de référence aux austres snapshot .... (a voir dans le dossier __snapshots__)
 //les snapshot n'est qu'une facon de faire un test de mm que "falsy"

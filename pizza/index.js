@@ -1,5 +1,5 @@
-import { ServiceBroker } from 'moleculer';
-import pizza from './pizza.js';
+import { ServiceBroker } from 'moleculer'; //ne récupère que l'objet ServiceBroker de l'ensemble retourné par meloculer
+import pizza from './pizza.js'; //récupère tous ce qui est retrounée par pizza.js
 
 //déclaration d'un nouveau instancieur de services sur le bus de données NATS port 4222
 const broker = new ServiceBroker({

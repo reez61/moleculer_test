@@ -72,6 +72,29 @@ services:
       - nats
     profiles:
       - rel
+  pizza-db:
+    build: *ref_0
+    depends_on:
+      - nats
+    volumes:
+      - ./pizza-db:/home/user/dev
+      - ./share:/home/user/share
+    command:
+      - npm
+      - start
+    ports:
+      - 9229
+  pizza-db.rel:
+    image: reez61/moleculer_test/pizza-db:${VERSION:-dev}
+    build:
+      context: ./pizza-db
+      args:
+        DOCKER_BUILD_NODEJS_VERSION: ${DOCKER_BUILD_NODEJS_VERSION}
+        SHARE: moleculer_test-share:${VERSION:-dev}
+    depends_on:
+      - nats
+    profiles:
+      - rel
   test:
     build: *ref_0
     volumes: &ref_1
@@ -79,6 +102,7 @@ services:
       - ./share:/home/user/share
       - ./gateway:/home/user/gateway
       - ./pizza:/home/user/pizza
+      - ./pizza-db:/home/user/pizza-db
     profiles:
       - test
     entrypoint:

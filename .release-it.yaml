@@ -6,5 +6,6 @@ hooks:
     - sed -i -e 's/${latestVersion}/${version}/g' helm/Chart.yaml
     - (cd gateway && release-it --ci ${version})
     - (cd pizza && release-it --ci ${version})
+    - (cd pizza-db && release-it --ci ${version})
     - (cd share && release-it --ci ${version})
     - (cd test && release-it --ci ${version})
