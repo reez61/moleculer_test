@@ -2,6 +2,7 @@ import test from 'ava';
 import { ServiceBroker } from 'moleculer';
 import { v4 as uuid } from 'uuid';
 import pizza from '../../pizza/pizza.js';
+//import pizzaDatabase from '../../pizza-db/pizza-database.js';
 
 test.beforeEach(async (t) => {
   t.context.broker = new ServiceBroker({

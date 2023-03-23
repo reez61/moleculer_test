@@ -3,6 +3,7 @@ import gateway from 'moleculer-web';
 
 //déclaration d'un nouveau instancieur de services sur le bus de données NATS port 4222
 const broker = new ServiceBroker({
+  //il existe un transporter sur moleculer 'stan://nats-streaming-server:4222' qui effectue tout les echanges en streaming => encore expérimentale
   transporter: 'nats://nats:4222',
 });
 
